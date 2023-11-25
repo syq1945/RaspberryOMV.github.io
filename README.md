@@ -173,6 +173,7 @@
 
 
 5. 设置开机自动启动<br>
+::: tip
 > // 开机自启动<br>
 > sudo systemctl enable smbd<br>
 > 
@@ -181,4 +182,4 @@
 > sudo chmod 777 /home/pi/test<br>
 > 
 > sudo service smb restart <br>
-
+:::
