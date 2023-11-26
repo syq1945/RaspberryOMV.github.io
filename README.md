@@ -1,5 +1,27 @@
-# 树莓派搭建Samba 文件共享服务器
 
+# 树莓派换源
+更换清华源： 
+[清华大学开源软件镜像站_Debian 软件源](https://mirrors.tuna.tsinghua.edu.cn/help/debian/)
+
+一般情况下，将`sudo nano /etc/apt/sources.list` 文件中 Debian 默认的源地址 http://deb.debian.org/ 替换为镜像地址即可。
+Debian Buster 以上版本默认支持 HTTPS 源。如果遇到无法拉取 HTTPS 源的情况，请先使用 HTTP 源并安装：
+`sudo apt install apt-transport-https ca-certificates`
+
+``` linux   
+# 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
+deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware
+deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware
+```
+
+``` linux
+sudo apt-get update
+#这个命令，会访问源列表里的每个网址，并读取软件列表，然后保存在本地电脑。
+
+#update后，可能需要upgrade一下。
+sudo apt-get upgrade
+```
+
+# 树莓派搭建Samba 文件共享服务器
 
 一、树莓派挂载U盘
 
