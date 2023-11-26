@@ -48,7 +48,7 @@ Debian Buster 以上版本默认支持 HTTPS 源。如果遇到无法拉取 HTTP
 deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware
 deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware
 ```
-[Raspberrypi 软件仓库](https://mirrors.tuna.tsinghua.edu.cn/help/raspberrypi/)
+[Raspberrypi 软件仓库](https://mirrors.tuna.tsinghua.edu.cn/help/raspberrypi/)<br>
 编辑 `sudo nano /etc/apt/sources.list.d/raspi.list` 文件。
 选择你的 Raspbian 对应的 Debian 版本  Debian 12 (bookworm)
 `deb https://mirrors.tuna.tsinghua.edu.cn/raspberrypi/ bookworm main`
