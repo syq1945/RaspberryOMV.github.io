@@ -54,10 +54,10 @@ deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-f
 选择你的 Raspbian 对应的 Debian 版本  Debian 12 (bookworm)<br>
 `deb https://mirrors.tuna.tsinghua.edu.cn/raspberrypi/ bookworm main`
 
-**如果 sudo apt-get update 报错：**
-W: GPG error: https://mirrors.tuna.tsinghua.edu.cn/debian bookworm InRelease: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY **0E98404D386FA1D9** NO_PUBKEY 6ED0E7B82643E131 NO_PUBKEY F8D2585B8783D481
+**如果 sudo apt-get update 报错：**<br>
+W: GPG error: https://mirrors.tuna.tsinghua.edu.cn/debian bookworm InRelease: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY **0E98404D386FA1D9** NO_PUBKEY 6ED0E7B82643E131 NO_PUBKEY F8D2585B8783D481<br>
 
-解决方案为： （把粗体的key 更换成上面错误的PUBKEY）
+解决方案为： （把粗体的key 更换成上面错误的PUBKEY）<br>
 `sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys **0E98404D386FA1D9** `
 
 更新： 
