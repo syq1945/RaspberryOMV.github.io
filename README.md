@@ -49,8 +49,8 @@ deb http://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free n
 deb-src http://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware
 ```
 [Raspberrypi 软件仓库](https://mirrors.tuna.tsinghua.edu.cn/help/raspberrypi/)<br>
-编辑 `sudo nano /etc/apt/sources.list.d/raspi.list` 文件。
-选择你的 Raspbian 对应的 Debian 版本  Debian 12 (bookworm)
+编辑 `sudo nano /etc/apt/sources.list.d/raspi.list` 文件。<br>
+选择你的 Raspbian 对应的 Debian 版本  Debian 12 (bookworm)<br>
 `deb https://mirrors.tuna.tsinghua.edu.cn/raspberrypi/ bookworm main`
 
 更新： 
