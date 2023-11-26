@@ -64,8 +64,6 @@ W: GPG error: https://mirrors.tuna.tsinghua.edu.cn/debian bookworm InRelease: Th
 ``` linux
 #更新
 sudo apt-get update
-
-
 sudo apt-get upgrade -y
 sudo rm -f /etc/systemd/network/99-default.link
 sudo reboot
