@@ -45,22 +45,34 @@ Debian Buster 以上版本默认支持 HTTPS 源。如果遇到无法拉取 HTTP
 
 ``` linux   
 # 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
-deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware
-deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware
+deb http://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware
+deb-src http://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware
 ```
 [Raspberrypi 软件仓库](https://mirrors.tuna.tsinghua.edu.cn/help/raspberrypi/)<br>
 编辑 `sudo nano /etc/apt/sources.list.d/raspi.list` 文件。
 选择你的 Raspbian 对应的 Debian 版本  Debian 12 (bookworm)
 `deb https://mirrors.tuna.tsinghua.edu.cn/raspberrypi/ bookworm main`
 
+更新： 
 ``` linux
-sudo reboot   #重启树莓派
+#更新
 sudo apt-get update
-#这个命令，会访问源列表里的每个网址，并读取软件列表，然后保存在本地电脑。
-
-#update后，可能需要upgrade一下。
-sudo apt-get upgrade
+sudo apt-get upgrade -y
+sudo rm -f /etc/systemd/network/99-default.link
+sudo reboot
 ```
+**安装OMV**
+``` linux
+wget  https://cdn.jsdelivr.net/gh/OpenMediaVault-Plugin-Developers/installScript@master/install
+
+chmod +x install
+
+sudo ./install -n
+```
+
+**配置OMV**
+浏览器输入树莓派IP地址就可以进入NAS系统了。
+`用户名默认为admin，密码为openmediavault`
 
 
 # 树莓派搭建Samba 文件共享服务器
