@@ -1,6 +1,42 @@
 
 # 树莓派换源
 更换清华源： 
+
+## 来自清华源官网的介绍
+**Raspbian 简介**
+Raspbian 是专门用于 ARM 卡片式计算机 Raspberry Pi® “树莓派”的操作系统， 其基于 Debian 开发，针对 Raspberry Pi 硬件优化。
+
+Raspbian 并非由树莓派的开发与维护机构 The Raspberry Pi Foundation“树莓派基金会”官方支持。其维护者是一群 Raspberry Pi 硬件和 Debian 项目的爱好者。
+
+注：Raspbian 系统由于从诞生开始就基于（为了 armhf，也必须基于）当时还是 testing 版本的 7.0/wheezy，所以 Raspbian 不倾向于使用 stable/testing 表示版本。
+
+**使用说明**
+首先通过 `sudo uname -m` 确定你使用的系统的架构。
+
+编辑镜像站后，请使用sudo apt-get update命令，更新软件源列表，同时检查您的编辑是否正确。
+
+**armv7l**
+选择你的 Raspbian 对应的 Debian 版本
+Debian 11 (bullseye)
+启用源码源
+启用 multi-arch aarch64
+``` Linux
+deb http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ bullseye main non-free contrib rpi
+# deb-src http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ bullseye main non-free contrib rpi
+
+# deb [arch=arm64] https://mirrors.tuna.tsinghua.edu.cn/raspbian/multiarch/ bullseye main
+```
+注意：网址末尾的 raspbian 重复两次是必须的。因为 Raspbian 的仓库中除了 APT 软件源还包含其他代码。APT 软件源不在仓库的根目录，而在raspbian/子目录下。
+
+**aarch64**
+[aarch64 用户可直接参考 Debian 帮助](https://mirrors.tuna.tsinghua.edu.cn/help/debian/)
+
+**raspberry 镜像**
+对于两个架构，编辑 `sudo nano /etc/apt/sources.list.d/raspi.list `文件，[这需要查看 Raspberrypi 帮助。](https://mirrors.tuna.tsinghua.edu.cn/help/raspberrypi/)
+
+
+## 适合我的树莓派的设置
+
 [清华大学开源软件镜像站_Debian 软件源](https://mirrors.tuna.tsinghua.edu.cn/help/debian/)
 
 一般情况下，将`sudo nano /etc/apt/sources.list` 文件中 Debian 默认的源地址 http://deb.debian.org/ 替换为镜像地址即可。
@@ -12,14 +48,20 @@ Debian Buster 以上版本默认支持 HTTPS 源。如果遇到无法拉取 HTTP
 deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware
 deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware
 ```
+[Raspberrypi 软件仓库](https://mirrors.tuna.tsinghua.edu.cn/help/raspberrypi/)
+编辑 `sudo nano /etc/apt/sources.list.d/raspi.list` 文件。
+选择你的 Raspbian 对应的 Debian 版本  Debian 12 (bookworm)
+`deb https://mirrors.tuna.tsinghua.edu.cn/raspberrypi/ bookworm main`
 
 ``` linux
+sudo reboot   #重启树莓派
 sudo apt-get update
 #这个命令，会访问源列表里的每个网址，并读取软件列表，然后保存在本地电脑。
 
 #update后，可能需要upgrade一下。
 sudo apt-get upgrade
 ```
+
 
 # 树莓派搭建Samba 文件共享服务器
 
