@@ -76,18 +76,66 @@ sudo reboot
 ```
 **安装OMV**
 ``` linux
-wget  https://cdn.jsdelivr.net/gh/OpenMediaVault-Plugin-Developers/installScript@master/install
-
-//给执行权限
-chmod +x install
-
-//执行安装
-sudo ./install -n
+//进入Root 模式
+sudo su
 ```
+//参考网站： 
+[openmediavault 官网- installation on Debian](https://docs.openmediavault.org/en/latest/installation/on_debian.html )
+
+**On Raspberry Pi OS the below instructions only partially work. Please refer to a specific installation script**
+
+**Note：** 
+The following commands must be executed as **root** user.
+
+**Install the openmediavault keyring manually:**
+```
+apt-get install --yes gnupg
+wget --quiet --output-document=- https://packages.openmediavault.org/public/archive.key | gpg --dearmor --yes --output "/usr/share/keyrings/openmediavault-archive-keyring.gpg"
+```
+**Add the package repositories:**
+我们仅对 Add the package repositories 段落做出如下调整
+直接运行整段代码即可
+```
+cat <<EOF > /etc/apt/sources.list.d/openmediavault.list
+deb https://mirrors.tuna.tsinghua.edu.cn/OpenMediaVault/public shaitan main
+deb https://mirrors.tuna.tsinghua.edu.cn/OpenMediaVault/packages shaitan main
+## Uncomment the following line to add software from the proposed repository.
+# deb https://mirrors.tuna.tsinghua.edu.cn/OpenMediaVault/public shaitan-proposed main
+# deb https://mirrors.tuna.tsinghua.edu.cn/OpenMediaVault/packages shaitan-proposed main
+## This software is not part of OpenMediaVault, but is offered by third-party
+## developers as a service to OpenMediaVault users.
+# deb https://mirrors.tuna.tsinghua.edu.cn/OpenMediaVault/public shaitan partner
+# deb https://mirrors.tuna.tsinghua.edu.cn/OpenMediaVault/packages shaitan partner
+EOF
+```
+其中 shaitan 为 Open Media Vault 的 codename（本样例代码为 6.x 的 codename）
+
+**Install the openmediavault package:**
+运行下面的代码：
+```
+export LANG=C.UTF-8
+export DEBIAN_FRONTEND=noninteractive
+export APT_LISTCHANGES_FRONTEND=none
+apt-get update
+apt-get --yes --auto-remove --show-upgraded \
+    --allow-downgrades --allow-change-held-packages \
+    --no-install-recommends \
+    --option DPkg::Options::="--force-confdef" \
+    --option DPkg::Options::="--force-confold" \
+    install openmediavault
+```
+Populate the openmediavault database with several existing system settings, e.g. the network configuration:
+`omv-confdbadm populate`
+
+之后OMV就安装完成了
 
 **配置OMV**
 浏览器输入树莓派IP地址就可以进入NAS系统了。
 `用户名默认为admin，密码为openmediavault`
+
+
+
+
 
 
 # 树莓派搭建Samba 文件共享服务器
