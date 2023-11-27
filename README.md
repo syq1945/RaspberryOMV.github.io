@@ -131,14 +131,14 @@ Populate the openmediavault database with several existing system settings, e.g.
 
 **配置OMV**
 浏览器输入树莓派IP地址就可以进入NAS系统了。
-`用户名默认为admin，密码为openmediavault`
+`用户名默认为admin，密码为openmediavault` <br>
+<br>
+<br>
 
 
 
 
-
-
-# 树莓派搭建Samba 文件共享服务器
+# 选项二： 树莓派搭建Samba 文件共享服务器
 
 一、树莓派挂载U盘
 
