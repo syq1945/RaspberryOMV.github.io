@@ -47,17 +47,18 @@ deb http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ bullseye main non-fre
 一般情况下，将`sudo nano /etc/apt/sources.list` 文件中 Debian 默认的源地址 http://deb.debian.org/ 替换为镜像地址即可。
 Debian Buster 以上版本默认支持 HTTPS 源。如果遇到无法拉取 HTTPS 源的情况，请先使用 HTTP 源并安装：
 `sudo apt install apt-transport-https ca-certificates`
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E77FC0EC34276B4B
 
+
+Debian 版本  **Debian 11 (bullseye)** 对应的清华源配置
 ``` linux   
 # 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
-deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware
-deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware
+deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye main contrib non-free
+deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye main contrib non-free
 ```
 [Raspberrypi 软件仓库](https://mirrors.tuna.tsinghua.edu.cn/help/raspberrypi/)<br>
 编辑 `sudo nano /etc/apt/sources.list.d/raspi.list` 文件。<br>
-选择你的 Raspbian 对应的 Debian 版本  Debian 12 (bookworm)<br>
-`deb https://mirrors.tuna.tsinghua.edu.cn/raspberrypi/ bookworm main`
+Debian 版本  **Debian 11 (bullseye)** 对应的清华软件仓库配置<br>
+`deb https://mirrors.tuna.tsinghua.edu.cn/raspberrypi/ bullseye main`
 
 **如果 sudo apt-get update 报错：**<br>
 W: GPG error: https://mirrors.tuna.tsinghua.edu.cn/debian bookworm InRelease: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY **0E98404D386FA1D9** NO_PUBKEY 6ED0E7B82643E131 NO_PUBKEY F8D2585B8783D481<br>
