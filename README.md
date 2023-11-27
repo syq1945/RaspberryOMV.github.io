@@ -1,4 +1,9 @@
 
+# 下载 Raspberry Pi OS (Legacy) Lite （Debian version: 11 (bullseye)）
+OMV 只支持 Lite 版树莓派， 最高支持到Debian version: 11 (bullseye) ，更高就不支持了。 
+[Raspberry Pi OS (Legacy) Lite (Debian version: 11 (bullseye)) ](https://downloads.raspberrypi.com/raspios_oldstable_lite_arm64/images/raspios_oldstable_lite_arm64-2023-10-10/2023-05-03-raspios-bullseye-arm64-lite.img.xz?_gl=1*p3ke4t*_ga*MTAxMTkxNDI0NS4xNzAxMDg0NDA1*_ga_22FD70LWDS*MTcwMTA4NDQwNi4xLjEuMTcwMTA4NDUyNC4wLjAuMA..)
+
+
 # 树莓派换源
 更换清华源： 
 
@@ -72,8 +77,10 @@ sudo reboot
 ``` linux
 wget  https://cdn.jsdelivr.net/gh/OpenMediaVault-Plugin-Developers/installScript@master/install
 
+//给执行权限
 chmod +x install
 
+//执行安装
 sudo ./install -n
 ```
 
